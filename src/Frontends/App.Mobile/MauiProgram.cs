@@ -1,4 +1,5 @@
-﻿using App.SharedUI.HostApi;
+﻿using App.SharedUI;
+using App.SharedUI.HostApi;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Net.Http;
@@ -27,6 +28,7 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddMauiBlazorWebView();
+		builder.Services.AddSharedUi(builder.Configuration);
 
 #if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();

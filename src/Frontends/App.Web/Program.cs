@@ -1,3 +1,4 @@
+using App.SharedUI;
 using App.SharedUI.HostApi;
 using Company.App.Identity.Endpoints;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -13,6 +14,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddAuthorizationCore();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddSharedUi(builder.Configuration);
 builder.Services.AddIdentityModule(builder.Configuration);
 builder.Services.Configure<HostApiOptions>(builder.Configuration.GetSection(HostApiOptions.SectionName));
 builder.Services.AddHttpClient("HostApi", (serviceProvider, client) =>
