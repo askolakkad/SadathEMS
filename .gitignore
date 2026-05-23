@@ -16,6 +16,7 @@ artifacts/
 
 ## Logs
 *.log
+/build*.log
 
 ## NuGet
 packages/
