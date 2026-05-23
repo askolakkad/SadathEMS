@@ -1,0 +1,48 @@
+## Visual Studio
+.vs/
+
+## Build output
+[Bb]in/
+[Oo]bj/
+out/
+artifacts/
+
+## User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Logs
+*.log
+
+## NuGet
+packages/
+*.nupkg
+*.snupkg
+project.assets.json
+project.nuget.cache
+
+## .NET
+TestResults/
+*.trx
+
+## Rider / ReSharper
+.idea/
+_ReSharper*/
+*.DotSettings.user
+
+## VS Code
+.vscode/
+
+## Node
+node_modules/
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Secrets and local settings
+secrets.json
+appsettings.Local.json

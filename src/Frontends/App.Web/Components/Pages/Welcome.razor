@@ -1,0 +1,30 @@
+@page "/welcome"
+@attribute [Authorize]
+
+<PageTitle>Welcome</PageTitle>
+
+<h1>Welcome</h1>
+
+<p>You are successfully signed in to SadathEMS.</p>
+
+<div class="row g-4 mt-1">
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="h5">Dashboard</h2>
+                <p class="mb-3">Go to the main logged-in landing area.</p>
+                <a class="btn btn-primary" href="dashboard">Open dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="h5">Identity administration</h2>
+                <p class="mb-3">Open users, roles, and role groups.</p>
+                <a class="btn btn-outline-secondary" href="identity">Open Identity admin</a>
+            </div>
+        </div>
+    </div>
+</div>

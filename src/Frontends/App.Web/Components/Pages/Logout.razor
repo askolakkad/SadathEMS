@@ -1,0 +1,13 @@
+@page "/logout"
+@inject NavigationManager NavigationManager
+
+<PageTitle>Logout</PageTitle>
+
+<p>Signing out...</p>
+
+@code {
+    protected override void OnInitialized()
+    {
+        NavigationManager.NavigateTo("/account/logout?returnUrl=%2Flogin", forceLoad: true);
+    }
+}

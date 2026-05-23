@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>SadathEMS.AppWeb</RootNamespace>
+    <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+    <UserSecretsId>SadathEMS-AppWeb-Identity</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.SharedUI\App.SharedUI.csproj" />
+    <ProjectReference Include="..\..\Modules\Identity\Company.App.Identity.Endpoints\Company.App.Identity.Endpoints.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,30 @@
+@page "/dashboard"
+@attribute [Authorize]
+
+<PageTitle>Dashboard</PageTitle>
+
+<h1>Dashboard</h1>
+
+<p>You are signed in to SadathEMS.</p>
+
+<div class="row g-4 mt-1">
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="h5">Identity administration</h2>
+                <p class="mb-3">View users, roles, and role groups.</p>
+                <a class="btn btn-primary" href="identity">Open Identity admin</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="h5">Secure area</h2>
+                <p class="mb-3">Open the protected sample page.</p>
+                <a class="btn btn-outline-secondary" href="secure">Open secure page</a>
+            </div>
+        </div>
+    </div>
+</div>

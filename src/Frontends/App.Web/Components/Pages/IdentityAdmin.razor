@@ -1,0 +1,110 @@
+@page "/identity"
+@attribute [Authorize(Roles = "Administrator")]
+@inject SadathEMS.AppWeb.HostApi.HostApiClient HostApiClient
+
+<PageTitle>Identity administration</PageTitle>
+
+<h1>Identity administration</h1>
+
+<p>First testable admin page for the Identity module.</p>
+
+@if (snapshot is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="h5">Users</h2>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Confirmed</th>
+                                <th>Roles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in snapshot.Users)
+                            {
+                                <tr>
+                                    <td>@user.Email</td>
+                                    <td>@(user.EmailConfirmed ? "Yes" : "No")</td>
+                                    <td>@(user.Roles.Count == 0 ? "-" : string.Join(", ", user.Roles))</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="h5">Roles</h2>
+                    <ul class="mb-0">
+                        @foreach (var role in snapshot.Roles)
+                        {
+                            <li>@role.Name</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="h5">Role groups</h2>
+                    @if (snapshot.RoleGroups.Count == 0)
+                    {
+                        <p class="mb-0 text-muted">No role groups configured yet.</p>
+                    }
+                    else
+                    {
+                        <ul class="mb-0">
+                            @foreach (var roleGroup in snapshot.RoleGroups)
+                            {
+                                <li>@roleGroup</li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private IdentityAdministrationSnapshotViewModel? snapshot;
+
+    protected override async Task OnInitializedAsync()
+    {
+        snapshot = await HostApiClient.GetFromJsonAsync<IdentityAdministrationSnapshotViewModel>("api/identity/administration");
+    }
+
+    private sealed class IdentityAdministrationSnapshotViewModel
+    {
+        public IReadOnlyList<IdentityUserSummaryViewModel> Users { get; set; } = [];
+        public IReadOnlyList<IdentityRoleSummaryViewModel> Roles { get; set; } = [];
+        public IReadOnlyList<string> RoleGroups { get; set; } = [];
+    }
+
+    private sealed class IdentityUserSummaryViewModel
+    {
+        public string Id { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public bool EmailConfirmed { get; set; }
+        public IReadOnlyList<string> Roles { get; set; } = [];
+    }
+
+    private sealed class IdentityRoleSummaryViewModel
+    {
+        public string Id { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+    }
+}

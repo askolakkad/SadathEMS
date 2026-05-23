@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <UserSecretsId>SadathEMS-AppApiHost</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.Infrastructure\BuildingBlocks.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.Workflow\BuildingBlocks.Workflow.csproj" />
+    <ProjectReference Include="..\..\Modules\HSE\Company.App.Hse.Endpoints\Company.App.Hse.Endpoints.csproj" />
+    <ProjectReference Include="..\..\Modules\Identity\Company.App.Identity.Endpoints\Company.App.Identity.Endpoints.csproj" />
+  </ItemGroup>
+
+</Project>

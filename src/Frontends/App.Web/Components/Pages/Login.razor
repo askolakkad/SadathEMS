@@ -1,0 +1,88 @@
+@page "/login"
+@attribute [AllowAnonymous]
+@using Microsoft.AspNetCore.Components.Web
+@inject NavigationManager NavigationManager
+
+<PageTitle>Login</PageTitle>
+
+<h1>Login</h1>
+
+<div class="row">
+    <div class="col-md-6 col-lg-4">
+        <form method="post" action="@LoginAction" @formname="login">
+            <AntiforgeryToken />
+
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input id="email" name="email" type="email" class="form-control" value="@Email" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <input id="password" name="password" type="password" class="form-control" required />
+            </div>
+
+            <div class="form-check mb-3">
+                <input name="rememberMe" type="hidden" value="false" />
+                <input id="rememberMe" name="rememberMe" type="checkbox" class="form-check-input" value="true" checked="@RememberMe" />
+                <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+
+            <input name="returnUrl" type="hidden" value="@RelativeReturnUrl" />
+            <input name="loginUrl" type="hidden" value="@LoginUrl" />
+
+            @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+            {
+                <div class="alert alert-danger" role="alert">@ErrorMessage</div>
+            }
+
+            <button class="btn btn-primary" type="submit">Sign in</button>
+        </form>
+
+        <div class="mt-3 text-muted small">
+            Use the configured seeded administrator account from the active environment settings.
+        </div>
+    </div>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    public string? ReturnUrl { get; set; }
+
+    [SupplyParameterFromQuery]
+    public string? Error { get; set; }
+
+    [SupplyParameterFromQuery]
+    public string? Email { get; set; }
+
+    [SupplyParameterFromQuery]
+    public bool RememberMe { get; set; }
+
+    private const string LoginAction = "/account/login";
+
+    private string RelativeReturnUrl => NormalizeLocalUrl(ReturnUrl, "/welcome");
+
+    private string LoginUrl => $"/login?returnUrl={Uri.EscapeDataString(RelativeReturnUrl)}";
+
+    private string? ErrorMessage => Error switch
+    {
+        "lockedout" => "Your account is locked out.",
+        "invalid" => "Invalid login attempt.",
+        _ => null
+    };
+
+    private static string NormalizeLocalUrl(string? url, string fallback)
+    {
+        if (string.IsNullOrWhiteSpace(url))
+        {
+            return fallback;
+        }
+
+        if (Uri.TryCreate(url, UriKind.Absolute, out var absoluteUri))
+        {
+            return $"{absoluteUri.AbsolutePath}{absoluteUri.Query}{absoluteUri.Fragment}";
+        }
+
+        return url.StartsWith('/') ? url : $"/{url}";
+    }
+}

@@ -1,0 +1,42 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Core/BuildingBlocks.Core.csproj" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Infrastructure/BuildingBlocks.Infrastructure.csproj" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.UI/BuildingBlocks.UI.csproj" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Workflow/BuildingBlocks.Workflow.csproj" />
+  </Folder>
+  <Folder Name="/src/Frontends/">
+    <Project Path="src/Frontends/App.Mobile/App.Mobile.csproj" />
+    <Project Path="src/Frontends/App.SharedUI/App.SharedUI.csproj" />
+    <Project Path="src/Frontends/App.Web/App.Web.csproj" />
+  </Folder>
+  <Folder Name="/src/Host/">
+    <Project Path="src/Host/App.ApiHost/App.ApiHost.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/HR/">
+    <Project Path="src/Modules/HR/Company.App.Hr.Application/Company.App.Hr.Application.csproj" />
+    <Project Path="src/Modules/HR/Company.App.Hr.Domain/Company.App.Hr.Domain.csproj" />
+    <Project Path="src/Modules/HR/Company.App.Hr.Endpoints/Company.App.Hr.Endpoints.csproj" />
+    <Project Path="src/Modules/HR/Company.App.Hr.Infrastructure/Company.App.Hr.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/HSE/">
+    <Project Path="src/Modules/HSE/Company.App.Hse.Application/Company.App.Hse.Application.csproj" />
+    <Project Path="src/Modules/HSE/Company.App.Hse.Domain/Company.App.Hse.Domain.csproj" />
+    <Project Path="src/Modules/HSE/Company.App.Hse.Endpoints/Company.App.Hse.Endpoints.csproj" />
+    <Project Path="src/Modules/HSE/Company.App.Hse.Infrastructure/Company.App.Hse.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Identity/">
+    <Project Path="src/Modules/Identity/Company.App.Identity.Application/Company.App.Identity.Application.csproj" />
+    <Project Path="src/Modules/Identity/Company.App.Identity.Domain/Company.App.Identity.Domain.csproj" />
+    <Project Path="src/Modules/Identity/Company.App.Identity.Endpoints/Company.App.Identity.Endpoints.csproj" />
+    <Project Path="src/Modules/Identity/Company.App.Identity.Infrastructure/Company.App.Identity.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/PlantMaintenance/">
+    <Project Path="src/Modules/PlantMaintenance/Company.App.PM.Application/Company.App.PM.Application.csproj" />
+    <Project Path="src/Modules/PlantMaintenance/Company.App.PM.Domain/Company.App.PM.Domain.csproj" />
+    <Project Path="src/Modules/PlantMaintenance/Company.App.PM.Endpoints/Company.App.PM.Endpoints.csproj" />
+    <Project Path="src/Modules/PlantMaintenance/Company.App.PM.Infrastructure/Company.App.PM.Infrastructure.csproj" />
+  </Folder>
+</Solution>
